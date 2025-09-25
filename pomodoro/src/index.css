@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@theme {
+  /* fonts:  */
+  --default-font-family: "Inter", sans-serif;
+
+  /* color text(dark): */
+  --text-primary: #a0ccff;
+  --text-default: #efefef;
+  --text-hint: #919498;
+  --text-default-inverse: #232931;
+  --text-hint-inverse: #505050;
+}
