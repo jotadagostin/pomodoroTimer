@@ -4,10 +4,45 @@
   /* fonts:  */
   --default-font-family: "Inter", sans-serif;
 
-  /* color text(dark): */
+  /* color: text(dark): */
   --text-primary: #a0ccff;
   --text-default: #efefef;
   --text-hint: #919498;
   --text-default-inverse: #232931;
   --text-hint-inverse: #505050;
+
+  /* color: Bg(dark): */
+  --bg-primary: #0075ff;
+  --bg-default: #232931;
+  --bg-paper: #3d3e42;
+  --bg-default-inverse: #fefefe;
+  --bg-paper-inverse: #f1f1f1;
+  --bg-paper-inverse-interactive: #d2d2d2;
+
+  /* color: Border(dark): */
+
+  --border-default: #efefef;
+  --border-hint: #afb3b7;
+  --border-subtitle: #3d3e42;
+
+  /* color: text(light): */
+  --text-primary: #e39685;
+  --text-default: #efefef;
+  --text-hint: #919498;
+  --text-default-inverse: #232931;
+  --text-hint-inverse: ##505050;
+
+  /* color: Bg(light): */
+  --bg-primary: #0075ff;
+  --bg-default: #232931;
+  --bg-paper: #3d3e42;
+  --bg-default-inverse: #fefefe;
+  --bg-paper-inverse: #f1f1f1;
+  --bg-paper-inverse-interactive: #d2d2d2;
+
+  /* color: Border(dark): */
+
+  --border-default: #efefef;
+  --border-hint: ##afb3b7;
+  --border-subtitle: ##3d3e42;
 }
