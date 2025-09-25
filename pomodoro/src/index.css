@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @theme {
   /* fonts:  */
   --default-font-family: "Inter", sans-serif;
@@ -45,4 +51,23 @@
   --border-default: #efefef;
   --border-hint: ##afb3b7;
   --border-subtitle: ##3d3e42;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background: url("./assets/background.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+button {
+  cursor: pointer;
 }
