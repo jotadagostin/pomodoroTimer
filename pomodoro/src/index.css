@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 :root {
   /* fonts:  */
@@ -18,7 +18,7 @@
   --text-hint-inverse: #505050;
 
   /* color: Bg(dark): */
-  --bg-primary: #0075ff;
+  --bg-primary: #4e81bb;
   --bg-default: #232931;
   --bg-paper: #3d3e42;
   --bg-default-inverse: #fefefe;
@@ -39,7 +39,7 @@
   --text-hint-inverse: ##505050;
 
   /* color: Bg(light): */
-  --bg-primary: #0075ff;
+  --bg-primary-light: #0075ff;
   --bg-default: #232931;
   --bg-paper: #3d3e42;
   --bg-default-inverse: #fefefe;
@@ -68,9 +68,16 @@ body {
   background-repeat: no-repeat;
 }
 
-button {
+/* button {
   cursor: pointer;
-}
+  padding: 8px 12px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #232931;
+} */
 
 span {
   font-family: var(--default-font-family);
