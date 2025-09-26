@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-@theme {
+:root {
   /* fonts:  */
   --default-font-family: "Inter", sans-serif;
 
@@ -32,7 +32,7 @@
   --border-subtitle: #3d3e42;
 
   /* color: text(light): */
-  --text-primary: #e39685;
+  --text-primary-light: #e39685;
   --text-default: #efefef;
   --text-hint: #919498;
   --text-default-inverse: #232931;
@@ -70,4 +70,15 @@ body {
 
 button {
   cursor: pointer;
+}
+
+span {
+  font-family: var(--default-font-family);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 77px;
+  color: var(--text-default);
+  display: flex;
+  padding: 3px;
 }
