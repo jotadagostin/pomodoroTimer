@@ -1,6 +1,7 @@
 import restartSvg from "../assets/restart.svg";
 import configSvg from "../assets/configs.svg";
 import { Button } from "../components/Button";
+import { Link } from "react-router";
 
 export function Pomodoro() {
   return (
@@ -42,9 +43,11 @@ export function Pomodoro() {
           </button>
 
           <Button />
-          <button className="cursor-pointer hover:brightness-0 hover:invert duration-200">
-            <img src={configSvg} alt="config icon" />
-          </button>
+          <Link to={"/configs"}>
+            <button className="cursor-pointer hover:brightness-0 hover:invert duration-200">
+              <img src={configSvg} alt="config icon" />
+            </button>
+          </Link>
         </div>
       </main>
     </div>

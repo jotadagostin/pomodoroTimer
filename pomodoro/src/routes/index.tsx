@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router";
 import { Pomodoro } from "../pages/Pomorodo";
-import Configs from "../pages/Setting";
+import Configs from "../pages/Configs";
 
 export function AppRoutes() {
   return (
