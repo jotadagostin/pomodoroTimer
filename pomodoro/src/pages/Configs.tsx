@@ -53,7 +53,7 @@ export default function Configs() {
               type="number"
               min={1}
               max={180}
-              className="w-28 p-1 text-center border border-gray-500 rounded bg-[var(--bg-paper)]"
+              className="w-28 p-1 text-center border border-gray-500 rounded bg-[var(--bg-paper)] text-[var(--text-default)]"
             />
           </div>
 
@@ -64,7 +64,7 @@ export default function Configs() {
               type="number"
               min={1}
               max={60}
-              className="w-28 p-1 text-center border border-gray-500 rounded bg-[var(--bg-paper)]"
+              className="w-28 p-1 text-center border border-gray-500 rounded bg-[var(--bg-paper)] text-[var(--text-default)]"
             />
           </div>
 
@@ -75,7 +75,7 @@ export default function Configs() {
               type="number"
               min={1}
               max={120}
-              className="w-28 p-1 text-center border border-gray-500 rounded bg-[var(--bg-paper)]"
+              className="w-28 p-1 text-center border border-gray-500 rounded bg-[var(--bg-paper)] text-[var(--text-default)]"
             />
           </div>
         </div>
