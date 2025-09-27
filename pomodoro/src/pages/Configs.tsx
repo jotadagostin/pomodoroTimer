@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import arrowSetting from "../assets/arrow_settings.svg";
+import { Switch } from "../components/Switch";
 
 export default function Configs() {
   return (
@@ -12,8 +13,8 @@ export default function Configs() {
           </h1>
         </Link>
       </header>
-      <main>
-        <div></div>
+      <main className="w-[412px] h-[191px] flex px-5">
+        <Switch />
       </main>
     </div>
   );
