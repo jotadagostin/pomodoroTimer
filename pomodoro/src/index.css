@@ -60,6 +60,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: var(--default-font-family);
 }
 
 body {
