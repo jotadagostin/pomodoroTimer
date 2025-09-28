@@ -2,10 +2,41 @@ import { Link } from "react-router";
 import arrowSetting from "../assets/arrow_settings.svg";
 import checkSvg from "../assets/check.svg";
 import { Switch } from "../components/Switch";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Configs() {
   const [checked, setChecked] = useState(false);
+
+  //Input states:
+  const [focusTime, setFocusTime] = useState(25);
+  const [breakTime, setBreakTime] = useState(5);
+  const [restTime, setRestTime] = useState(15);
+  const [autoTransition, setAutoTransition] = useState(false);
+
+  //Load in the LocalStorage:
+
+  useEffect(() => {
+    const storedFocus = localStorage.getItem("focusTime");
+    const storedBreak = localStorage.getItem("breakTime");
+    const storedRest = localStorage.getItem("restTime");
+    const storedAuto = localStorage.getItem("autoTransition");
+
+    if (storedFocus) setFocusTime(Number(storedFocus));
+    if (storedBreak) setBreakTime(Number(storedBreak));
+    if (storedRest) setRestTime(Number(storedRest));
+    if (storedAuto) setAutoTransition(storedAuto === "true");
+  }, []);
+
+  //Save in LocalStorage:
+
+  function handleSave() {
+    localStorage.setItem("focusTime", String(focusTime));
+    localStorage.setItem("breakTime", String(breakTime));
+    localStorage.setItem("restTime", String(restTime));
+    localStorage.setItem("autoTransition", String(autoTransition));
+    alert("Configs salved!");
+  }
+
   return (
     <div className=" bg-[var(--text-default-inverse)] flex flex-col justify-between items-center w-[412px] h-[256px] rounded-xl">
       <header className="w-[412px] h-[45px]  flex flex-col justify-center items-start  border-b-1 border-[var(--bg-paper)] ">
@@ -24,16 +55,16 @@ export default function Configs() {
           <input
             type="checkbox"
             className="sr-only"
-            checked={checked}
-            onChange={() => setChecked(!checked)}
+            checked={autoTransition}
+            onChange={() => setAutoTransition(!autoTransition)}
           />
 
           <div
             className={`w-6 h-6 border border-gray-400 flex items-center justify-center transition-colors ${
-              checked ? "bg-[#A0CCFF]" : "bg-gray-300"
+              autoTransition ? "bg-[#A0CCFF]" : "bg-gray-300"
             }`}
           >
-            {checked && (
+            {autoTransition && (
               <img src={checkSvg} alt="Checked" className="w-4 h-4" />
             )}
           </div>
@@ -53,10 +84,11 @@ export default function Configs() {
               type="number"
               min={1}
               max={180}
+              value={focusTime}
+              onChange={(e) => setFocusTime(Number(e.target.value))}
               className="w-28 p-1 text-center border border-gray-500 rounded bg-[var(--bg-paper)] text-[var(--text-default)]"
             />
           </div>
-
           {/* Break */}
           <div className="flex  flex-col items-start justify-between">
             <label className="text-[var(--text-default)]">Break</label>
@@ -64,10 +96,11 @@ export default function Configs() {
               type="number"
               min={1}
               max={60}
+              value={breakTime}
+              onChange={(e) => setBreakTime(Number(e.target.value))}
               className="w-28 p-1 text-center border border-gray-500 rounded bg-[var(--bg-paper)] text-[var(--text-default)]"
             />
           </div>
-
           {/* Rest */}
           <div className="flex flex-col items-start justify-between">
             <label className="text-[var(--text-default)]">Rest</label>
@@ -75,11 +108,19 @@ export default function Configs() {
               type="number"
               min={1}
               max={120}
+              value={restTime}
+              onChange={(e) => setRestTime(Number(e.target.value))}
               className="w-28 p-1 text-center border border-gray-500 rounded bg-[var(--bg-paper)] text-[var(--text-default)]"
             />
           </div>
         </div>
       </main>
+      <button
+        onClick={handleSave}
+        className="w-[370px] h-[35px] flex items-center justify-center  mt-1  mb-1 px-1 py-1 bg-gray-500 text-white rounded hover:bg-gray-600 transition"
+      >
+        Save
+      </button>
     </div>
   );
 }

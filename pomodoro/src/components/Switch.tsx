@@ -6,7 +6,7 @@ export function Switch() {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div className="">
+    <div className="mt-1 pr-3">
       <label className="inline-flex items-center cursor-pointer relative">
         {/* Input escondido */}
         <input
