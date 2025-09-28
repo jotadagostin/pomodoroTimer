@@ -3,6 +3,7 @@ import configSvg from "../assets/configs.svg";
 import { Button } from "../components/Button";
 import { Link } from "react-router";
 import { useEffect, useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 type Mode = "Focus" | "Break" | "Rest";
 
@@ -11,6 +12,8 @@ export function Pomodoro() {
   const [running, setRunning] = useState(false);
   const [mode, setMode] = useState<Mode>("Focus");
   const [autoTransition, setAutoTransition] = useState(false);
+
+  const { darkMode } = useTheme();
 
   // Load the configs in the localStorage
   const focusTime = Number(localStorage.getItem("focusTime")) || 25;
@@ -89,16 +92,28 @@ export function Pomodoro() {
   }
 
   return (
-    <div className="bg-[var(--text-default-inverse)] flex flex-col justify-between items-center w-[412px] h-[256px] rounded-xl">
-      <header className="w-[412px] h-[45px] flex flex-col items-center justify-center border-b-1 border-[var(--bg-paper)]">
-        <nav className="w-[412px] flex justify-around">
+    <div
+      className={`flex flex-col justify-between items-center w-[412px] h-[256px] rounded-xl transition-colors ${
+        darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
+      }`}
+    >
+      <header
+        className={`w-[412px] h-[45px] flex flex-col items-center justify-center border-b ${
+          darkMode ? "border-gray-700" : "border-gray-300"
+        }`}
+      >
+        <nav className="w-[412px] flex justify-around ">
           {(["Focus", "Break", "Rest"] as Mode[]).map((m) => (
             <button
               key={m}
-              className={`relative pb-3 pt-3 ${
+              className={`relative pb-3 pt-3 cursor-pointer ${
                 mode === m
-                  ? "text-[var(--text-default)]"
-                  : "text-[var(--text-hint)]"
+                  ? darkMode
+                    ? "text-white"
+                    : "text-black"
+                  : darkMode
+                  ? "text-gray-400"
+                  : "text-gray-500"
               }`}
               onClick={() => setMode(m)}
             >
@@ -109,27 +124,33 @@ export function Pomodoro() {
       </header>
 
       <main className="w-[412px] flex-1 flex flex-col justify-center items-center gap-5">
-        <div className="w-[186px] flex justify-center items-center text-6xl font-bold tracking-wider">
+        <div className="w-[186px] flex justify-center items-center text-5xl font-bold">
           <span>{minutes}</span>
           <span>:</span>
           <span>{seconds}</span>
         </div>
 
-        <div className="w-[412px] h-[45px] flex justify-center items-center gap-5.5">
+        <div className="w-[412px] h-[45px] flex justify-center items-center gap-6">
           {/* Restart */}
           <button
-            className="cursor-pointer hover:brightness-0 hover:invert"
+            className={`cursor-pointer duration-200 ${
+              darkMode ? "invert" : "hover:invert"
+            }`}
             onClick={handleRestart}
           >
             <img src={restartSvg} alt="restart icon" />
           </button>
 
-          {/* Start / Pause */}
+          {/* Start/Pause */}
           <Button running={running} onToggle={() => setRunning(!running)} />
 
           {/* Config */}
           <Link to={"/configs"}>
-            <button className="cursor-pointer hover:brightness-0 hover:invert duration-200">
+            <button
+              className={`cursor-pointer duration-200 ${
+                darkMode ? "invert" : "hover:invert"
+              }`}
+            >
               <img src={configSvg} alt="config icon" />
             </button>
           </Link>
