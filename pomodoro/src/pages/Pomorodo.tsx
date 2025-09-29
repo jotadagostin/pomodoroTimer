@@ -93,7 +93,7 @@ export function Pomodoro() {
 
   return (
     <div
-      className={`flex flex-col justify-between items-center w-[412px] h-[256px] rounded-xl transition-colors ${
+      className={`flex flex-col justify-between items-center w-[542px] h-[346px] rounded-xl transition-colors ${
         darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
       }`}
     >
@@ -130,7 +130,7 @@ export function Pomodoro() {
           <span>{seconds}</span>
         </div>
 
-        <div className="w-[412px] h-[45px] flex justify-center items-center gap-6">
+        <div className="w-[415px] h-[45px] flex justify-center items-center gap-6">
           {/* Restart */}
           <button
             className={`cursor-pointer duration-200 ${

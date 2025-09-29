@@ -128,7 +128,7 @@ export default function Configs() {
 
   return (
     <div
-      className={`flex flex-col justify-between items-center w-[412px] h-[256px] rounded-xl transition-colors
+      className={`flex flex-col justify-between items-center w-[542px] h-[346px] rounded-xl transition-colors
         ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}
     >
       <header
@@ -201,7 +201,7 @@ export default function Configs() {
 
       <button
         onClick={handleSave}
-        className={`w-[370px] h-[35px] flex items-center justify-center mt-1 mb-1 px-1 py-1 rounded transition cursor-pointer
+        className={`w-[370px] h-[35px] flex items-center justify-center  mb-4 rounded transition cursor-pointer
           ${
             darkMode
               ? "bg-gray-700 text-white hover:bg-gray-600"
