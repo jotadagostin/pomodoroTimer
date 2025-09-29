@@ -40,16 +40,23 @@ export default function Configs() {
   }
 
   // return (
-  //   <div className=" bg-[var(--text-default-inverse)] flex flex-col justify-between items-center w-[412px] h-[256px] rounded-xl">
-  //     <header className="w-[412px] h-[45px]  flex flex-col justify-center items-start  border-b-1 border-[var(--bg-paper)] ">
+  //   <div
+  //     className={`flex flex-col justify-between items-center w-[542px] h-[346px] rounded-xl transition-colors
+  //       ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}
+  //   >
+  //     <header
+  //       className={`w-[412px] h-[45px] flex flex-col justify-center items-start border-b
+  //       ${darkMode ? "border-gray-700" : "border-gray-300"}`}
+  //     >
   //       <Link to={"/"}>
-  //         <h1 className="flex gap-4 relative text-[var(--text-default)] pl-4">
+  //         <h1 className="flex gap-4 relative pl-4">
   //           <img src={arrowSetting} alt="" />
   //           Settings
   //         </h1>
   //       </Link>
   //     </header>
-  //     <main className="w-[412px] h-[191px] flex px-5  flex-col gap-6">
+
+  //     <main className="w-[412px] h-[191px] flex px-5 flex-col gap-6">
   //       <Switch />
 
   //       {/* auto-transition-input */}
@@ -60,93 +67,92 @@ export default function Configs() {
   //           checked={autoTransition}
   //           onChange={() => setAutoTransition(!autoTransition)}
   //         />
-
   //         <div
-  //           className={`w-6 h-6 border border-gray-400 flex items-center justify-center transition-colors ${
-  //             autoTransition ? "bg-[#A0CCFF]" : "bg-gray-300"
-  //           }`}
+  //           className={`w-6 h-6 border flex items-center justify-center transition-colors
+  //             ${darkMode ? "border-gray-600" : "border-gray-400"}
+  //             ${
+  //               autoTransition
+  //                 ? "bg-blue-400"
+  //                 : darkMode
+  //                 ? "bg-gray-700"
+  //                 : "bg-gray-300"
+  //             }`}
   //         >
   //           {autoTransition && (
   //             <img src={checkSvg} alt="Checked" className="w-4 h-4" />
   //           )}
   //         </div>
-
-  //         <h4 className="ms-3 text-[var(--text-default)]">
-  //           Auto-transition timer
-  //         </h4>
+  //         <h4 className="ms-3">Auto-transition timer</h4>
   //       </label>
 
   //       {/* Focus-Break-Rest INPUT */}
-
-  //       <div className="flex  gap-4 w-60">
-  //         {/* Focus */}
-  //         <div className="flex flex-col items-start justify-between gap-1">
-  //           <label className="text-[var(--text-default)]">Focus</label>
-  //           <input
-  //             type="number"
-  //             min={1}
-  //             max={180}
-  //             value={focusTime}
-  //             onChange={(e) => setFocusTime(Number(e.target.value))}
-  //             className="w-28 p-1 text-center border border-gray-500 rounded bg-[var(--bg-paper)] text-[var(--text-default)]"
-  //           />
-  //         </div>
-  //         {/* Break */}
-  //         <div className="flex  flex-col items-start justify-between">
-  //           <label className="text-[var(--text-default)]">Break</label>
-  //           <input
-  //             type="number"
-  //             min={1}
-  //             max={60}
-  //             value={breakTime}
-  //             onChange={(e) => setBreakTime(Number(e.target.value))}
-  //             className="w-28 p-1 text-center border border-gray-500 rounded bg-[var(--bg-paper)] text-[var(--text-default)]"
-  //           />
-  //         </div>
-  //         {/* Rest */}
-  //         <div className="flex flex-col items-start justify-between">
-  //           <label className="text-[var(--text-default)]">Rest</label>
-  //           <input
-  //             type="number"
-  //             min={1}
-  //             max={120}
-  //             value={restTime}
-  //             onChange={(e) => setRestTime(Number(e.target.value))}
-  //             className="w-28 p-1 text-center border border-gray-500 rounded bg-[var(--bg-paper)] text-[var(--text-default)]"
-  //           />
-  //         </div>
+  //       <div className="flex gap-4 w-60">
+  //         {[
+  //           { label: "Focus", value: focusTime, set: setFocusTime, max: 180 },
+  //           { label: "Break", value: breakTime, set: setBreakTime, max: 60 },
+  //           { label: "Rest", value: restTime, set: setRestTime, max: 120 },
+  //         ].map(({ label, value, set, max }) => (
+  //           <div key={label} className="flex flex-col items-start gap-1">
+  //             <label>{label}</label>
+  //             <input
+  //               type="number"
+  //               min={1}
+  //               max={max}
+  //               value={value}
+  //               onChange={(e) => set(Number(e.target.value))}
+  //               className={`w-28 p-1 text-center border rounded
+  //                 ${
+  //                   darkMode
+  //                     ? "bg-gray-800 border-gray-600 text-white"
+  //                     : "bg-gray-100 border-gray-400 text-black"
+  //                 }`}
+  //             />
+  //           </div>
+  //         ))}
   //       </div>
   //     </main>
+
   //     <button
   //       onClick={handleSave}
-  //       className="w-[370px] h-[35px] flex items-center justify-center  mt-1  mb-1 px-1 py-1 bg-gray-500 text-white rounded hover:bg-gray-600 transition"
+  //       className={`w-[370px] h-[35px] flex items-center justify-center  mb-4 rounded transition cursor-pointer
+  //         ${
+  //           darkMode
+  //             ? "bg-gray-700 text-white hover:bg-gray-600"
+  //             : "bg-gray-500 text-white hover:bg-gray-600"
+  //         }`}
   //     >
   //       Save
   //     </button>
   //   </div>
   // );
-
   return (
     <div
-      className={`flex flex-col justify-between items-center w-[542px] h-[346px] rounded-xl transition-colors
+      className={`flex flex-col justify-between items-center 
+        w-full max-w-md sm:max-w-lg md:max-w-xl 
+        min-h-[300px] sm:min-h-[340px] 
+        rounded-xl transition-colors p-4 sm:p-6
         ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}
     >
+      {/* Header */}
       <header
-        className={`w-[412px] h-[45px] flex flex-col justify-center items-start border-b 
+        className={`w-full h-[45px] flex items-center justify-start border-b px-4 
         ${darkMode ? "border-gray-700" : "border-gray-300"}`}
       >
-        <Link to={"/"}>
-          <h1 className="flex gap-4 relative pl-4">
-            <img src={arrowSetting} alt="" />
-            Settings
-          </h1>
+        <Link to={"/"} className="flex gap-3 items-center">
+          <img
+            src={arrowSetting}
+            alt="back"
+            className="w-4 h-4 sm:w-5 sm:h-5"
+          />
+          <h1 className="text-base sm:text-lg font-medium">Settings</h1>
         </Link>
       </header>
 
-      <main className="w-[412px] h-[191px] flex px-5 flex-col gap-6">
+      {/* Main */}
+      <main className="w-full flex flex-col gap-6 mt-4">
         <Switch />
 
-        {/* auto-transition-input */}
+        {/* Auto-transition */}
         <label className="relative inline-flex items-center cursor-pointer">
           <input
             type="checkbox"
@@ -169,25 +175,25 @@ export default function Configs() {
               <img src={checkSvg} alt="Checked" className="w-4 h-4" />
             )}
           </div>
-          <h4 className="ms-3">Auto-transition timer</h4>
+          <h4 className="ms-3 text-sm sm:text-base">Auto-transition timer</h4>
         </label>
 
-        {/* Focus-Break-Rest INPUT */}
-        <div className="flex gap-4 w-60">
+        {/* Focus/Break/Rest inputs */}
+        <div className="flex flex-wrap sm:flex-nowrap gap-4 w-full justify-between">
           {[
             { label: "Focus", value: focusTime, set: setFocusTime, max: 180 },
             { label: "Break", value: breakTime, set: setBreakTime, max: 60 },
             { label: "Rest", value: restTime, set: setRestTime, max: 120 },
           ].map(({ label, value, set, max }) => (
-            <div key={label} className="flex flex-col items-start gap-1">
-              <label>{label}</label>
+            <div key={label} className="flex flex-col items-start gap-1 flex-1">
+              <label className="text-sm sm:text-base">{label}</label>
               <input
                 type="number"
                 min={1}
                 max={max}
-                value={value}
+                value={value || ""}
                 onChange={(e) => set(Number(e.target.value))}
-                className={`w-28 p-1 text-center border rounded 
+                className={`w-full p-1 text-center border rounded 
                   ${
                     darkMode
                       ? "bg-gray-800 border-gray-600 text-white"
@@ -199,9 +205,10 @@ export default function Configs() {
         </div>
       </main>
 
+      {/* Save button */}
       <button
         onClick={handleSave}
-        className={`w-[370px] h-[35px] flex items-center justify-center  mb-4 rounded transition cursor-pointer
+        className={`w-full max-w-sm h-[40px] mt-6 rounded transition cursor-pointer
           ${
             darkMode
               ? "bg-gray-700 text-white hover:bg-gray-600"

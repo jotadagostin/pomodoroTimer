@@ -93,28 +93,31 @@ export function Pomodoro() {
 
   return (
     <div
-      className={`flex flex-col justify-between items-center w-[542px] h-[346px] rounded-xl transition-colors ${
-        darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
-      }`}
+      className={`flex flex-col justify-between items-center 
+        w-full max-w-md sm:max-w-lg md:max-w-xl 
+        min-h-[300px] sm:min-h-[340px] 
+        rounded-xl transition-colors p-4 sm:p-6
+        ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}
     >
+      {/* Header */}
       <header
-        className={`w-[412px] h-[45px] flex flex-col items-center justify-center border-b ${
-          darkMode ? "border-gray-700" : "border-gray-300"
-        }`}
+        className={`w-full h-[45px] flex items-center justify-center border-b 
+          ${darkMode ? "border-gray-700" : "border-gray-300"}`}
       >
-        <nav className="w-[412px] flex justify-around ">
+        <nav className="w-full flex justify-around text-sm sm:text-base">
           {(["Focus", "Break", "Rest"] as Mode[]).map((m) => (
             <button
               key={m}
-              className={`relative pb-3 pt-3 cursor-pointer ${
-                mode === m
-                  ? darkMode
-                    ? "text-white"
-                    : "text-black"
-                  : darkMode
-                  ? "text-gray-400"
-                  : "text-gray-500"
-              }`}
+              className={`relative pb-2 pt-2 cursor-pointer 
+                ${
+                  mode === m
+                    ? darkMode
+                      ? "text-white"
+                      : "text-black"
+                    : darkMode
+                    ? "text-gray-400"
+                    : "text-gray-500"
+                }`}
               onClick={() => setMode(m)}
             >
               {m}
@@ -123,14 +126,16 @@ export function Pomodoro() {
         </nav>
       </header>
 
-      <main className="w-[412px] flex-1 flex flex-col justify-center items-center gap-5">
-        <div className="w-[186px] flex justify-center items-center text-5xl font-bold">
+      {/* Timer */}
+      <main className="flex-1 flex flex-col justify-center items-center gap-5 w-full">
+        <div className="flex justify-center items-center text-5xl sm:text-6xl font-bold">
           <span>{minutes}</span>
           <span>:</span>
           <span>{seconds}</span>
         </div>
 
-        <div className="w-[415px] h-[45px] flex justify-center items-center gap-6">
+        {/* Controls */}
+        <div className="w-full flex justify-center items-center gap-6">
           {/* Restart */}
           <button
             className={`cursor-pointer duration-200 ${
@@ -138,7 +143,11 @@ export function Pomodoro() {
             }`}
             onClick={handleRestart}
           >
-            <img src={restartSvg} alt="restart icon" />
+            <img
+              src={restartSvg}
+              alt="restart icon"
+              className="w-6 h-6 sm:w-8 sm:h-8"
+            />
           </button>
 
           {/* Start/Pause */}
@@ -151,7 +160,11 @@ export function Pomodoro() {
                 darkMode ? "invert" : "hover:invert"
               }`}
             >
-              <img src={configSvg} alt="config icon" />
+              <img
+                src={configSvg}
+                alt="config icon"
+                className="w-6 h-6 sm:w-8 sm:h-8"
+              />
             </button>
           </Link>
         </div>
