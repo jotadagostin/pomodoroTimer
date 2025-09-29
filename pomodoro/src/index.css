@@ -69,6 +69,12 @@ body {
   background-repeat: no-repeat;
 }
 
+body.dark {
+  background: url("./assets/background-gray.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 span {
   font-family: var(--default-font-family);
   font-style: normal;
