@@ -128,8 +128,7 @@ export default function Configs() {
   return (
     <div
       className={`flex flex-col justify-between items-center 
-        w-full max-w-md sm:max-w-lg md:max-w-xl 
-        min-h-[300px] sm:min-h-[340px] 
+       w-[542px] h-[356px] 
         rounded-xl transition-colors p-4 sm:p-6
         ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}
     >
@@ -208,7 +207,7 @@ export default function Configs() {
       {/* Save button */}
       <button
         onClick={handleSave}
-        className={`w-full max-w-sm h-[40px] mt-6 rounded transition cursor-pointer
+        className={`w-full h-[40px] mt-6 rounded transition cursor-pointer
           ${
             darkMode
               ? "bg-gray-700 text-white hover:bg-gray-600"
