@@ -61,7 +61,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: var(--default-font-family);
-  min-height: 90vh;
+  min-height: 50vh;
   overflow-x: hidden;
   overflow-y: hidden;
 }
