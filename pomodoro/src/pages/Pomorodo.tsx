@@ -174,7 +174,7 @@ export function Pomodoro() {
 
   return (
     <div
-      className={`flex flex-col justify-between items-center  w-[542px] h-[356px]  rounded-xl transition-colors 
+      className={`flex flex-col justify-between items-center      w-[380px] h-[356px] md:w-[542px] md:h-[346px]  rounded-xl transition-colors 
         ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}
     >
       <header

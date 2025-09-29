@@ -128,7 +128,7 @@ export default function Configs() {
   return (
     <div
       className={`flex flex-col justify-between items-center 
-       w-[542px] h-[356px] 
+        w-[380px] h-[356px] md:w-[542px] md:h-[346px]
         rounded-xl transition-colors p-4 sm:p-6
         ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}
     >
